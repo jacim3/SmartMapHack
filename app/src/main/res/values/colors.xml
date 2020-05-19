@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#AAaed6e2</color>
+    <color name="colorPrimaryDark">#000000</color><!--#AA810000-->
+    <color name="colorAccent">#AAaed6e2</color>
+    <color name="tabColor">#AAFF7776</color>
+    <color name="fButtonColor">#AAFF5753</color>
+</resources>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.smartmaphack">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="Your API Key Here" />
+
+        <activity android:name=".MainActivity">
+
+        </activity>
+        <activity android:name=".mapsearch.Location_Map" />
+        <activity android:name=".settings.Location_Settings"
+            android:theme="@style/MyTransParent"/>
+        <activity android:name=".settings.Location_Search"
+            android:theme="@style/MyPopup"/>
+        <activity android:name=".scheduler.Location_Schedule"
+            android:theme="@style/MyPopup"/>
+        <activity android:name=".scheduler.Location_Register"
+            android:theme="@style/MyTransParent"/>
+        <activity android:name=".misc.Splash"
+            android:theme="@style/SplashTheme">
+            <intent-filter>             <!--해당 프로젝트에서 가장 먼저 뜰 액티비티를 설정하는 곳.-->
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <receiver android:name=".alarm.AlarmReceiver" />
+    </application>
+
+</manifest>
