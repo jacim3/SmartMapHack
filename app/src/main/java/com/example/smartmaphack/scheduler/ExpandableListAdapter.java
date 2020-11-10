@@ -59,9 +59,11 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         calendar.setTimeInMillis(System.currentTimeMillis());
 
         String[] sData = dbHelper.briefInfo().toArray(new String[0]);   //String [] <->ArrayList 변환
+
         sProgress = new ArrayList<>();
         sErgent = new ArrayList<>();
         sDeadLine = new ArrayList<>();
+
         proGress = new ArrayList<>();
         erGent = new ArrayList<>();
         deadLine = new ArrayList<>();
@@ -70,7 +72,7 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
             if (dbHelper.dateInfo().get(i) - calendar.getTimeInMillis() > HOUR) {
                 sProgress.add(sData[i]);        //해당하는 구체적인 데이터 저장.
-                proGress.add(i);    //인덱스값 저장
+                proGress.add(i);                //인덱스값 저장
             } else if (dbHelper.dateInfo().get(i) - calendar.getTimeInMillis() < HOUR && dbHelper.dateInfo().get(i) - calendar.getTimeInMillis() > 0) {
                 sErgent.add(sData[i]);
                 erGent.add(i);
@@ -191,29 +193,29 @@ public class ExpandableListAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                                         int A = Integer.parseInt(GData[proGress.get(i)].split(". ")[0]);
                                         alarmDelete(A,dbHelper);
                                         dbHelper.delete(A);
-
                                     }
                                 }
+
                                 for (int i = 0; i < erGent.size(); i++) {
                                     if (position == proGress.size() + 2 + i) {
                                         int B = Integer.parseInt(GData[erGent.get(i)].split(". ")[0]);
                                         alarmDelete(B,dbHelper);
                                         dbHelper.delete(B);
-
                                     }
                                 }
+
                                 for (int i = 0; i < deadLine.size(); i++) {
                                     if (position == proGress.size() + erGent.size() + 3 + i) {
                                         int C = Integer.parseInt(GData[deadLine.get(i)].split(". ")[0]);
                                         alarmDelete(C,dbHelper);
                                         dbHelper.delete(C);
-
                                     }
                                 }
 
                                 Snackbar.make(view, "등록한 일정을 삭제했습니다.", Snackbar.LENGTH_LONG).show();
 
                                 //포지션을 지정해 줘야 삭제가 제대로 이루어진다.
+
                                 data.remove(position);
                                 notifyItemRemoved(position);
                                 notifyItemRangeChanged(position, data.size());

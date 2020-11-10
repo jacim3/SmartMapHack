@@ -20,7 +20,7 @@ import com.example.smartmaphack.scheduler.Location_Schedule;
            finish();
            startActivity(intent);*/
 
-public class    AlarmReceiver extends BroadcastReceiver {
+public class AlarmReceiver extends BroadcastReceiver {
 
     Integer[] landID = {R.drawable.landscape1, R.drawable.landscape2, R.drawable.landscape3, R.drawable.landscape4, R.drawable.landscape5};
 
@@ -93,7 +93,6 @@ public class    AlarmReceiver extends BroadcastReceiver {
         } else
             builder.setSmallIcon(R.mipmap.ic_launcher); // Oreo 이하에서 mipmap 사용하지 않으면 Couldn't create icon: StatusBarIcon 에러남
 
-
         builder.setAutoCancel(false)
                 .setDefaults(NotificationCompat.DEFAULT_ALL)
                 .setWhen(System.currentTimeMillis());
@@ -104,7 +103,6 @@ public class    AlarmReceiver extends BroadcastReceiver {
             // 노티피케이션 동작시킴
             notificationManager.notify(11, builder.build());
         }
-
     }
 
     void alarmDistribution(NotificationCompat.Builder builder, PendingIntent pendingI, String[] arr, Context context) {
@@ -126,7 +124,6 @@ public class    AlarmReceiver extends BroadcastReceiver {
 
     void alarmContentsProcess(String[] arr, RemoteViews extendView, RemoteViews collapseView) {
 
-
         if (!arr[1].equals(" ")) {//장소 입력을 했으면,
             extendView.setTextViewText(R.id.exTItle, arr[1]);
         } else {    //하지 않으면, 알람시간을 대신 보여줌.
@@ -141,7 +138,7 @@ public class    AlarmReceiver extends BroadcastReceiver {
                 extendView.setTextViewText(R.id.exContents, "시간이 되었습니다~!");
             else
                 extendView.setTextViewText(R.id.exContents, arr[3]);
-        }else
+        } else
             extendView.setTextViewText(R.id.exContents, arr[4]);
 
 

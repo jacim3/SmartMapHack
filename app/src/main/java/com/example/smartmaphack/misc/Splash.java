@@ -23,4 +23,9 @@ public class Splash extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }
