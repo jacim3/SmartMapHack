@@ -102,7 +102,7 @@ public class Location_Map extends AppCompatActivity implements
     boolean isLocationCallBack = false;
     boolean isMapReady = false;
 
-    private final String API_KEY = "AIzaSyAGahDW2n2Hgis5pPpx_y3wQHwHlM6-J-A";
+    private final String API_KEY = "";
     private static final String TAG = "googlemap_example";
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
     String Url = "";
